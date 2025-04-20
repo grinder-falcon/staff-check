@@ -21,7 +21,7 @@
       <form action="#" onsubmit="checkEligibility(event)">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-sm-12 col-md-4 col-lg-3">
+            <div class="col-12 col-md-4 col-lg-3">
               <div class="input-group mb-3">
                 <label class="input-group-text" for="inputEntry"
                   >TYPE OF ENTRY</label
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="row justify-content-center">
-            <div class="col-12 col-md-4 col-lg-3 mb-3 col-offset-3">
+            <div class="col-12 col-md-4 col-lg-3 mb-3">
               <button type="submit" class="btn btn-primary w-100">Check</button>
             </div>
             <div class="col-12 col-md-4 col-lg-3">
@@ -70,8 +70,8 @@
         </div>
       </form>
       <div id="resultDiv" class="container mt-4" style="display: none">
-        <div class="row justify-content-center">
-          <div class="col-12 mb-3">
+        <div class="row justify-content-center mb-3">
+          <div class="col-12 col-md-8 col-lg-6">
             <div class="alert alert-primary text-center">
               <p class="mb-0">Your Age today is <b id="spanAge">...</b></p>
               <p class="mb-0">
@@ -79,7 +79,9 @@
               </p>
             </div>
           </div>
-          <div class="col-12 mb-3">
+        </div>
+        <div class="row justify-content-center mb-3">
+          <div class="col-12 col-md-8 col-lg-6">
             <div class="alert alert-warning text-center">
               <p class="mb-0">
                 You have <b id="spanNoOfAttempts">...</b> attempt(s) left.
@@ -94,8 +96,8 @@
             </h4>
           </div>
         </div>
-        <div class="row justify-content-center">
-          <div class="col-xs-12">
+        <div class="row row-cols-1 justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
             <ul id="ulTimeline" style="list-style: none">
               <li>Loading...</li>
             </ul>

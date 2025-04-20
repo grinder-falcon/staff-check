@@ -18,8 +18,7 @@ let getDateDiff = (d1, d2) => {
 let checkEligibility = (e) => {
   e.preventDefault();
 
-  const serviceMin = 8,
-    serviceLimit = 12,
+  const serviceLimit = 12,
     ageLimitObj = {
       nda: 34,
       ima: 34,
@@ -96,12 +95,8 @@ let checkEligibility = (e) => {
           ageTxt = `<b style='color:green'>&#9989;</b> Age Criterion.`;
           flagAge = true;
         }
-        if (serviceX.yrs < serviceMin) {
-          serviceTxt = `<b style='color:red'>&#128941;</b> Service Criterion : Service < ${serviceMin} years.`;
-        } else if (serviceX.yrs >= serviceLimit) {
+        if (serviceX.yrs >= serviceLimit) {
           serviceTxt = `<b style='color:red'>&#128941;</b> Service Criterion : Service > ${serviceLimit} years.`;
-        } else if (serviceX < serviceMin) {
-          serviceTxt = `<b style='color:red'>&#128941;</b> Service Criterion : Service < ${serviceMin} years.`;
         } else {
           serviceTxt = `<ibstyle='color:green'>&#9989;</b> Service Criterion.`;
           flagService = true;
