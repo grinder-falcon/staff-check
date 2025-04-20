@@ -1,0 +1,39 @@
+footer {
+  color: #444;
+  text-align: center;
+  padding: 20px 0 40px 0;
+}
+.well {
+  border-radius: 4px;
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  background-color: #ddd;
+}
+#ulTimeline {
+  padding: 0;
+}
+#ulTimeline > li {
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+#ulTimeline > li > :first-child {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: 700;
+}
+/* Animations */
+/* @keyframes dig {
+  from {
+    translate: 0 -2px;
+  }
+  to {
+    translate: 0 2px;
+  }
+}
+.animate-dig {
+  display: inline-block;
+  animation-name: dig;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+} */

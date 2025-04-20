@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staff Check</title>
+    <link rel="stylesheet" href="css/bootstrap.5.3.2.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header
+      class="text-center p-2 mb-4"
+      style="border-bottom: 1px solid #00bcd4"
+    >
+      <h2 class="m-0 fw-bold">DSSC ELIGIBILITY</h2>
+      <small class="text-center mt-0 mb-1" style="color: #888">
+        Check your Staff attempts.
+      </small>
+    </header>
+    <main>
+      <form action="#" onsubmit="checkEligibility(event)">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-4 col-lg-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="inputEntry"
+                  >TYPE OF ENTRY</label
+                >
+                <select class="form-select" id="selectEntry" required>
+                  <option value="">SELECT</option>
+                  <option value="nda">NDA</option>
+                  <option value="ima">IMA</option>
+                  <option value="tes">TES</option>
+                  <option value="ncc">NCC</option>
+                  <option value="ues">UES</option>
+                  <option value="tgc">TGC</option>
+                  <option value="acc">ACC</option>
+                  <option value="scco">SSCO</option>
+                  <option value="nccssco">NCC(SSCO)</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="dateDOB">DOB</label>
+                <input type="date" id="dateDOB" required class="form-control" />
+              </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="input-group mb-3">
+                <label class="input-group-text" for="dateDOS">DOS</label>
+                <input type="date" id="dateDOS" required class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-4 col-lg-3 mb-3 col-offset-3">
+              <button type="submit" class="btn btn-primary w-100">Check</button>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+              <button
+                type="reset"
+                class="btn btn-warning w-100"
+                onclick="doReset()"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div id="resultDiv" class="container mt-4" style="display: none">
+        <div class="row justify-content-center">
+          <div class="col-12 mb-3">
+            <div class="alert alert-primary text-center">
+              <p class="mb-0">Your Age today is <b id="spanAge">...</b></p>
+              <p class="mb-0">
+                Your Service today is <b id="spanService">...</b>
+              </p>
+            </div>
+          </div>
+          <div class="col-12 mb-3">
+            <div class="alert alert-warning text-center">
+              <p class="mb-0">
+                You have <b id="spanNoOfAttempts">...</b> attempt(s) left.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center mb-2">
+          <div class="col-12">
+            <h4 class="h4">
+              <span>&#11163;</span> <u>Breakdown</u> <span>&#11163;</span>
+            </h4>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-xs-12">
+            <ul id="ulTimeline" style="list-style: none">
+              <li>Loading...</li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div style="color: #888; text-align: center">
+              <p class="mb-0" style="color: #666">
+                <span style="color: #ffd54f">&#9888;</span> This is a
+                preliminary calc.
+              </p>
+              <small
+                >Kindly do a detailed check as per latest policy in
+                vogue.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer><span style="color: red">&#128526;</span> Made by Falcon.</footer>
+  </body>
+
+  <script src="js/script.js"></script>
+</html>
