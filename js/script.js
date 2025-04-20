@@ -90,13 +90,13 @@ let checkEligibility = (e) => {
           serviceX = getDateDiff(dos, dService);
 
         if (ageX.yrs >= ageLimitObj[entry]) {
-          ageTxt = `<b style='color:red'>&#128941;</b> Age Criterion : Age > ${ageLimitObj[entry]} years.`;
+          ageTxt = `<b style='color:red'>&#10060;</b> Age Criterion : Age > ${ageLimitObj[entry]} years.`;
         } else {
           ageTxt = `<b style='color:green'>&#9989;</b> Age Criterion.`;
           flagAge = true;
         }
         if (serviceX.yrs >= serviceLimit) {
-          serviceTxt = `<b style='color:red'>&#128941;</b> Service Criterion : Service > ${serviceLimit} years.`;
+          serviceTxt = `<b style='color:red'>&#10060;</b> Service Criterion : Service > ${serviceLimit} years.`;
         } else {
           serviceTxt = `<ibstyle='color:green'>&#9989;</b> Service Criterion.`;
           flagService = true;
