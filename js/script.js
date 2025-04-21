@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  // checkEligibility(new Event("click"));
   console.log("Loaded...");
 });
 
@@ -31,6 +32,8 @@ let checkEligibility = (e) => {
       nccssco: 36,
     },
     examMonth = 9,
+    ageCalcMonth = 7,
+    serviceCalcMonth = 6,
     today = new Date();
 
   let selectEntry = document.getElementById("selectEntry"),
@@ -39,6 +42,11 @@ let checkEligibility = (e) => {
     dob = dateDOB.valueAsDate,
     dateDOS = document.getElementById("dateDOS"),
     dos = dateDOS.valueAsDate;
+
+  // // Test params
+  // entry = "tgc";
+  // dob = new Date("1993-11-24");
+  // dos = new Date("2018-12-10");
 
   if (!entry || !dob || !dos) {
     console.log("ERROR: Form is invalid.");
@@ -68,37 +76,36 @@ let checkEligibility = (e) => {
       flagService = false,
       timelineHTML = "";
     noOfYrs = ageLeft > serviceLeft ? ageLeft : serviceLeft;
-    spanAge.innerHTML = `${age.yrs} Yrs ${age.mons} Months.`;
-    spanService.innerHTML = `${service.yrs} Yrs ${service.mons} Months.`;
+    spanAge.innerHTML = `${age.yrs} Yrs ${age.mons} Month(s).`;
+    spanService.innerHTML = `${service.yrs} Yrs ${service.mons} Month(s).`;
 
     for (let i = 0; i < noOfYrs + 1; i++) {
       let yr = today.getFullYear() + i,
-        dService = new Date(`${yr}-07-01`),
-        dAge = new Date(`${yr}-06-01`);
+        dService = new Date(`${yr}-${serviceCalcMonth}-01`),
+        dAge = new Date(`${yr}-${ageCalcMonth}-01`),
+        ageTxt = "",
+        serviceTxt = "",
+        ageX = getDateDiff(dob, dAge),
+        serviceX = getDateDiff(dos, dService);
 
       if (today.getMonth() + 1 > examMonth) {
         console.log(`Alert : Exam for ${yr} already done in Sep.`);
-        timelineHTML += `
-        <li>
-          <div>Exam Year : ${yr} </div>
-          <div>Exam already completed in Sep-${yr}.</div>
-        </li>`;
+        ageTxt = `<b style='color:red'>&#10060;</b> Exam for ${yr} already done in Sep.`;
       } else {
-        let ageTxt = "",
-          serviceTxt = "",
-          ageX = getDateDiff(dob, dAge),
-          serviceX = getDateDiff(dos, dService);
-
         if (ageX.yrs >= ageLimitObj[entry]) {
-          ageTxt = `<b style='color:red'>&#10060;</b> Age Criterion : Age > ${ageLimitObj[entry]} years.`;
+          ageTxt = `<b style='color:red'>&#10060;</b> Age > ${ageLimitObj[entry]} years.
+                      <small class="float-end">Age : ${ageX.yrs} Yrs ${ageX.mons} Mnths</small>`;
         } else {
-          ageTxt = `<b style='color:green'>&#9989;</b> Age Criterion.`;
+          ageTxt = `<b style='color:green'>&#9989;</b> Age Criterion.
+                      <small class="float-end">Age : ${ageX.yrs} Yrs ${ageX.mons} Mnths</small>`;
           flagAge = true;
         }
         if (serviceX.yrs >= serviceLimit) {
-          serviceTxt = `<b style='color:red'>&#10060;</b> Service Criterion : Service > ${serviceLimit} years.`;
+          serviceTxt = `<b style='color:red'>&#10060;</b> Service > ${serviceLimit} years.
+                          <small class="float-end">Service : ${serviceX.yrs} Yrs ${serviceX.mons} Mnths</small>`;
         } else {
-          serviceTxt = `<ibstyle='color:green'>&#9989;</b> Service Criterion.`;
+          serviceTxt = `<ibstyle='color:green'>&#9989;</b> Service Criterion.
+                          <small class="float-end">Service : ${serviceX.yrs} Yrs ${serviceX.mons} Mnths</small>`;
           flagService = true;
         }
 
