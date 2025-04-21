@@ -32,8 +32,8 @@ let checkEligibility = (e) => {
       nccssco: 36,
     },
     examMonth = 9,
-    ageCalcMonth = 7,
-    serviceCalcMonth = 6,
+    ageCalcMonth = "07",
+    serviceCalcMonth = "06",
     today = new Date();
 
   let selectEntry = document.getElementById("selectEntry"),
